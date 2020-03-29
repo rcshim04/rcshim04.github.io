@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Eric Shim - OOP Tutorial</title>
         <link rel="stylesheet" href="headerfooter.css">
-        <link rel="stylesheet" href="style3.css">
+        <link rel="stylesheet" href="style5.css">
         <link rel="icon" href="img/favicon.ico">
     </head>
     <body>
@@ -32,53 +32,29 @@
                     <li>
                         <a href="projects.html" class="button button4">Projects</a>
                     </li>
-                    <a href="index.html" class="button button5">Contact</a>
+                    <a href="contact.html" class="button button5">Contact</a>
                 </ul>
             </nav>
         </header>
         <main>
-            <h1>Who am I?</h1>
-            <h2>About me</h2>
-            <p>Hi, my name is Eric, but you can just call me Eric.</p>
-            <p>I am a grade 10 student enrolled in the MaCS program at William Lyon Mackenzie Collegiate Institute, and I am currently taking the AP Computer Science course.</p>
-            <p>insert more text im lazy</p>
-            <p>ill do it later i promise</p>
+            <h1>Contact Me</h1>
+            <h2>Get in touch via the form below, or by emailing <a href="mailto:rcshim04@gmail.com?subject=Hello!" target="blank">rcshim04@gmail.com</a>.</h2>
+            <form action="" method="post", id="form">
+                Name:<br>
+                <input type="text" id="name" placeholder="Enter your name"><br>
+                Message:<br>
+                <input type="text" id="msg" placeholder="Enter your message" size="50"><br><br>
+                <input type="submit" value="Send" onclick="mail()">
+            </form>
+            <script>
+                let mail = () => {
+                    const name = document.getElementById('name');
+                    const msg = document.getElementById('msg');
+                    x = window.open("mailto:rcshim04@gmail.com?subject=A message from "+name.value+"&body="+msg.value);
+                }
+            </script>
         </main>
         <footer>
-            <ul>
-                <li>
-                    <a href="https://mcpt.ca/user/rcshim04" title="MCPT">
-                        <div class="img">
-                            <img src="img/mcpt.png" class="imgcur" alt="MCPT" height="32">
-                            <img src="img/mcpt2.png" class="imgtop" alt="MCPT" height="36">
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://dmoj.ca/user/rcshim04" title="DMOJ">
-                        <div class="img">
-                            <img src="img/dmoj.png" class="imgcur" alt="DMOJ" height="32">
-                            <img src="img/dmoj2.png" class="imgtop" alt="DMOJ" height="36">
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://github.com/rcshim04" title="Github">
-                        <div class="img">
-                            <img src="img/github.png" class="imgcur" alt="Github" height="32">
-                            <img src="img/github2.png" class="imgtop" alt="Github" height="36">
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="mailto:rcshim04@gmail.com" title="Email">
-                        <div class="img">
-                            <img src="img/email.png" class="imgcur" alt="Email" height="32">
-                            <img src="img/email2.png" class="imgtop" alt="Email" height="36">
-                        </div>
-                    </a>
-                </li>
-            </ul>
             <p>© 2020 Eric Shim</p>
         </footer>
     </body>
