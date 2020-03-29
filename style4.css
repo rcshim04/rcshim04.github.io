@@ -1,90 +1,6 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
-}
-.button {
-    border: none;
-    background-color: #404040;
-    color: #f2f2f2;
-    padding: 18px 28px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    cursor: pointer;
-    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
-    font-weight: 400;
-}
-.button1 {
-    padding: 11px 24px;
-    padding-left: 48px;
-    font-size: 22px;
-}
-.button2:hover {
-    color: #0099ff;
-}
-.button3:hover {
-    color: #0099ff;
-}
 .button4 {
     font-weight: 600;
     color: #0099ff;
-}
-.button4:hover {
-    color: #0099ff;
-}
-.button5 {
-    float: right;
-}
-.button5:hover {
-    color: #0099ff;
-}
-.about {
-    color: #0099ff;
-    border: none;
-    background-color: inherit;
-    padding: 15px 0px;
-    font-size: 18px;
-}
-nav{
-    width: 100%;
-    top: 0;
-}
-nav ul {
-    list-style-type: none;
-    overflow: hidden;
-    background-color: #404040;
-}
-nav ul li {
-    float: left;
-}
-nav ul li .logo {
-    position: absolute;
-    padding-left: 16px;
-    padding-top: 13px;
-}
-.dropdown {
-    display: none;
-    position: absolute;
-    background-color: #404040;
-    font-weight: 400;
-}
-.dropdown a {
-    color: #f2f2f2;
-    padding: 18px 28px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-}
-.dropdown a:hover {
-    color: #0099ff
-}
-.drop:hover .dropdown {
-    display: block;
 }
 main {
     margin: 0 auto;
@@ -120,35 +36,9 @@ main p a {
 }
 footer {
     position: relative;
-    bottom: 20px;
-    width: 100%;
-    background-color: white;
-    font-size: 12px;
-    color: #404040;
-    text-align: center;
-}
-footer ul li {
-    padding-bottom: 15px;
-    display: inline-block;
-}
-footer .img {
-    padding: 15px;
-    position: relative;
-    display: inline;
 }
 footer .imgtop {
-    padding: 15px;
-    position: absolute;
-    left: -2px;
-    bottom: 2px;
-    opacity: 0;
-    z-index: 99;
-}
-footer .img:hover .imgtop {
-    opacity: 1;
-}
-footer .img:hover .imgcur {
-    opacity: 0;
+    bottom: -10px;
 }
 @keyframes bottomFadeOut {
     0% {
