@@ -1,0 +1,85 @@
+.button3 {
+    font-weight: 600;
+    color: #0099ff;
+}
+main {
+    margin: 0 auto;
+    margin-top: 80px;
+    margin-bottom: 100px;
+    margin-right: 100px;
+    margin-left: 100px;
+    color: black;
+    text-align: left;
+    animation-name: bottomFadeOut;
+    animation-duration: 2s;
+}
+main h1 {
+    font-size: 60px;
+    font-weight: 600;
+}
+main h2 {
+    padding-top: 20px;
+    font-size: 30px;
+    font-weight: 400;
+}
+main h3 {
+    padding-top: 5px;
+    font-size: 22px;
+    font-weight: 400;
+}
+main h4 {
+    padding-top: 20px;
+    font-size: 16px;
+    font-weight: 400;
+}
+main h5 {
+    padding-top: 10px;
+    font-size: 12px;
+    font-weight: 400;
+}
+main p {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.contents a {
+    font-weight: 600;
+    text-decoration: none;
+    color: #0099ff;
+}
+main li {
+    list-style-position: inside;
+}
+main ol {
+    padding-left: 20px;
+}
+#code {
+    background-color: #f2f2f2;
+}
+code {
+    font-family: "Courier New", Courier, monospace;
+    line-height: 17px;
+    font-size: 15px;
+    font-weight: 400;
+    white-space: pre-wrap;
+}
+@keyframes bottomFadeOut {
+    0% {
+      position: relative;
+      top: 40px;;
+      opacity: 0;
+      z-index: -1;
+    }
+  
+    75% {
+      position: relative;
+      opacity: 1;
+      z-index: -1;
+    }
+  
+    100% {
+        position: relative;
+        top: 0px;
+        opacity: 1;
+        z-index: -1;
+    }
+}
