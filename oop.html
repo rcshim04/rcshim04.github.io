@@ -6,6 +6,7 @@
         <title>Eric Shim - OOP Tutorial</title>
         <link rel="stylesheet" href="headerfooter.css">
         <link rel="stylesheet" href="style3.css">
+        <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
         <link rel="icon" href="img/favicon.ico">
     </head>
     <body>
@@ -23,10 +24,10 @@
                         <a class="button button3">Tutorials</a>
                         <div class="dropdown">
                             <a href="oop.html">OOP</a>
-                            <a href="index.html">Arrays & Arraylists</a>
-                            <a href="index.html">GUI</a>
-                            <a href="index.html">Sorting & Searching</a>
-                            <a href="index.html">Recursion</a>
+                            <a href="comingsoon.html">Arrays & Arraylists</a>
+                            <a href="comingsoon.html">GUI</a>
+                            <a href="comingsoon.html">Sorting & Searching</a>
+                            <a href="comingsoon.html">Recursion</a>
                         </div>
                     </li>
                     <li>
@@ -37,12 +38,99 @@
             </nav>
         </header>
         <main>
-            <h1>Who am I?</h1>
-            <h2>About me</h2>
-            <p>Hi, my name is Eric, but you can just call me Eric.</p>
-            <p>I am a grade 10 student enrolled in the MaCS program at William Lyon Mackenzie Collegiate Institute, and I am currently taking the AP Computer Science course.</p>
-            <p>insert more text im lazy</p>
-            <p>ill do it later i promise</p>
+            <h1>Object-Oriented Programming</h1>
+            <p>
+                Object-oriented programming, or OOP, refers to a style of computer programming in which the programmer defines the data type of a data structure,
+                as well as the functions that can be applied to the data structure.
+                In this way, the data structure becomes an object that has both data and functions. 
+                Object-oriented programming aims to implement real-world entities through the use of objects.
+            </p>
+            <ul class="contents">
+                <li>
+                    <a href="#objectsclasses">Objects & Classes</a>
+                </li>
+                <li>
+                    <a href="#inheritence">Inheritence</a>
+                </li>
+            </ul>
+            <h2 id="objectsclasses">Objects & Classes</h2>
+            <p>
+                Any entity that has state and behaviour is an object. A typical Java program creates many objects, which interact by invoking methods.<br>
+                An object consists of:<br>
+                <ol>
+                    <li><b>State:</b> The attributes of the object.</li>
+                    <li><b>Behaviour:</b> The methods of the object.</li>
+                    <li><b>Identity:</b> A unique name assigned to the object that allows it to interact with other objects.</li>
+                </ol>
+                <br>
+                Objects in Java have their attributes stored in instance variables, and have methods that can manipulate the behaviours and attributes of the object.<br>
+                However, it is necessary that these objects are set up somehow. This is where classes come in.
+                A class can be considered as a blueprint from which objects are created. A class represents the set of states and behaviours that are common to all objects of a specific type.
+                Therefore, all objects that are built from the same class have the same components.<br>
+                <br>
+                Here is an example of a class:
+            </p>
+            <section id="code">
+                <pre class="prettyprint">
+                    <code>
+                        public class Dog {
+
+                            private String name;
+                            private int age;
+                            private String colour;
+
+                            public Dog(String name, int age, String colour) {
+                                this.name = name;
+                                this.age = age;
+                                this.colour = colour;
+                            }
+
+                            public void bark() {
+                                //implementation not shown
+                            }
+
+                            public void sleep() {
+                                //implementation not shown
+                            }
+
+                            public void eat() {
+                                //implementation not shown
+                            }
+
+                            public String getName() {
+                                return name;
+                            }
+                            
+                            public void setName(String name) {
+                                this.name = name;
+                            }
+
+                            public int getAge() {
+                                return age;
+                            }
+
+                            public void growOlder() {
+                                age++;
+                            }
+                            
+                            public String getColour() {
+                                return colour;
+                            }
+                        }
+                    </code>
+                </pre>
+            </section>
+            <h2 id="inheritence">Inheritence</h2>
+            <h3>Superclasses and Subclasses</h3>
+            <div class="sources">
+                <h4>Sources</h4>
+                <h5>
+                    Lesson: Object-Oriented Programming Concepts. (n.d.). Retrieved from https://docs.oracle.com/javase/tutorial/java/concepts/index.html<br>
+                    Object Oriented Programming (OOPs) Concept in Java. (2019, November 22). Retrieved from https://www.geeksforgeeks.org/object-oriented-programming-oops-concept-in-java/<br>
+                    Java OOPs Concepts - Javatpoint. (n.d.). Retrieved from https://www.javatpoint.com/java-oops-concepts<br>
+                    OOP – Object Oriented Programming. (n.d.). Retrieved from https://www.webopedia.com/TERM/O/object_oriented_programming_OOP.html
+                </h5>
+            </div>
         </main>
         <footer>
             <ul>
