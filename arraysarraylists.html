@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Eric Shim - Arrays/Arraylist Tutorial</title>
+        <link rel="stylesheet" href="headerfooter.css">
+        <link rel="stylesheet" href="style3.css">
+        <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+        <link rel="icon" href="img/favicon.ico">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li>
+                        <img src="img/logo2.png" class="logo" alt="Eric Shim" height="28">
+                        <a href="index.html" class="button button1">Eric Shim</a>
+                    </li>
+                    <li>
+                        <a href="aboutme.html" class="button button2">About Me</a>
+                    </li>
+                    <li class="drop">
+                        <a class="button button3">Tutorials</a>
+                        <div class="dropdown">
+                            <a href="oop.html">OOP</a>
+                            <a href="arraysarraylists.html">Arrays & Arraylists</a>
+                            <a href="comingsoon.html">Sorting & Searching</a>
+                            <a href="comingsoon.html">Recursion</a>
+                            <a href="sources.html">Sources</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="projects.html" class="button button4">Projects</a>
+                    </li>
+                    <a href="contact.html" class="button button5">Contact</a>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h1>Arrays and Arraylists</h1>
+            <p>
+                Arrays and arraylists are data structures that are used to store large collections of data of the same type, in one place.
+                They can be used to replace a large amount of variables.
+                For example, instead of having variables for the x-position of 100 objects, you can store them in array with the length 100.
+                Both arrays and arraylists are 0-indexed, meaning that their first element can be accessed using the index 0.
+            </p>
+            <ul class="contents">
+                <p>Concepts</p>
+                <li>
+                    <a href="#arrays">Arrays</a>
+                </li>
+                <li>
+                    <a href="#multiarrays">Multi-Dimensional Arrays</a>
+                </li>
+                <li>
+                    <a href="#arraylists">Arraylists</a>
+                </li>
+            </ul>
+            <h2 id="arrays">Arrays</h2>
+            <p>
+                Arrays are data structures with a fixed or immutable length.
+                This means that once the array is declared with a specified length, this cannot change.
+                Arrays can be declared with both primitive data types and objects.
+                If you try to access elements that are not within the array's length, Java will throw an <code>ArrayIndexOutOfBoundsException</code>.
+            </p>
+            <br>
+            <h3>Initialization</h3>
+            <p>
+                Since arrays are objects in Java, they require the keyword <code>new</code> when an empty array is being declared.
+                The value within the second pair of square brackets determines the size or length of the array.
+                Remember that the length of the array is immutable. An array can be initialized in three ways:
+            </p>
+            <section class="code" id="code">
+                <pre class="prettyprint">
+                    <code>
+    int[] arr = new int[5];
+
+    int arr[] = new int[5];
+
+    int[] arr;
+    arr = new int[5];</code>
+                </pre>
+            </section>
+            <p>
+                An empty array of numerical primitive data types (e.g. <code>int</code> or <code>double</code>) will be set to 0,
+                a empty <code>boolean</code> array will be set to <code>false</code>,
+                and empty objects arrays will reference to <code>null</code>.
+            </p>
+            <section class="code" id="code">
+                <pre class="prettyprint">
+                    <code>
+    int[] intArray = new int[5]; //Will create an array of {0, 0, 0, 0, 0}
+    double[] doubleArray = new double[5]; //Will create an array of {0.0, 0.0, 0.0, 0.0, 0.0}
+    boolean[] boolArray = new boolean[5]; //Will create an array of {false, false, false, false, false}
+    Integer[] integerArray = new Integer[5]; //Will create an array of (null, null, null, null, null}</code>
+                </pre>
+            </section>
+            <p>
+                Arrays can also be initialized using array literals. This can be done with braces and commas.
+            </p>
+            <section class="code" id="code">
+                <pre class="prettyprint">
+                    <code>
+    int[] arr = {1, 2, 3, 4, 5};</code>
+                </pre>
+            </section>
+            <br>
+            <h3>Accessing Elements and Traversal</h3>
+            <p>
+                Elements in the array can be accessed by using the name of the array, followed by brackets with the index of the element.
+            </p>
+            <section class="code" id="code">
+                <pre class="prettyprint">
+                    <code>
+    int[] arr = {3, 10, 8, 2, 4};
+    System.out.println(arr[0]); //prints 3</code>
+                </pre>
+            </section>
+            <p>
+                The length of an array is a <code>public final</code> field that can be accessed directly from the array.
+            </p>
+            <section class="code" id="code">
+                <pre class="prettyprint">
+                    <code>
+    int[] arr = {3, 10, 8, 2, 4};
+    System.out.println(arr.length); //prints 5</code>
+                </pre>
+            </section>
+            <p>
+                This allows for the traversal through the array of an unknown length, and allows the program to modify the elements of the array, using a for loop.
+            </p>
+            <section class="code" id="code">
+                <pre class="prettyprint">
+                    <code>
+    for(int i = 0; i &lt; arr.length; i++) {
+        System.out.print(arr[i] + " "); //prints the current element
+        arr[i]++; //increases the current element by one
+    }</code>
+                </pre>
+            </section>
+            <p>
+                Another way to traverse an array is to use a for-each loop.
+                This type of loop is used to access the elements within the array when it's not necessary for the elements to be modified.
+                Unlike a standard for loop, a for-each loop does not keep track of the index, and can only iterate forward in single steps.
+            </p>
+            <section class="code" id="code">
+                <pre class="prettyprint">
+                    <code>
+    int odd = 0;
+    for(int num : arr) {
+        if(num%2 != 0)
+            odd++;
+    }
+    System.out.println(odd); //prints the number of odd numbers in the array</code>
+                </pre>
+            </section>
+            <br>
+            <h2 id="multiarrays">Multi-Dimensional Arrays</h2>
+            <p>
+                Multi-dimensional arrays are very similar to one-dimensional arrays.
+                A two-dimensional array, for example, is simply an array of arrays.
+            </p>
+            <br>
+            <h3>Initialization</h3>
+            <p>
+                Just like a one-dimensional array, a 2D array can be initialized with or without a length, or with an array literal.
+            </p>
+            <section class="code" id="code">
+                <pre class="prettyprint">
+                    <code>
+    int[][] arr = new int[3][3];
+    int arr[][] = new int[3][3];
+    int[] arr[] = new int[3][3]; //location of bracket pairs do not matter
+
+    int[][] arr;
+    arr = new int[3][3];
+
+    int[][] arr = {{5, 2, 6},
+                   {1, 3, 4},
+                   {9, 8, 7}};</code>
+                </pre>
+            </section>
+            <p>
+                In the last example, we can see that:<br>
+                <code>arr[0] = {5, 2, 6}</code><br>
+                <code>arr[1] = {1, 3, 4}</code><br>
+                <code>arr[2] = {9, 8, 7}</code><br>
+            </p>
+            <p>
+                For higher dimension arrays, continue the pattern by adding more bracket pairs and/or brace pairs.
+                For example:
+            </p>
+            <section class="code" id="code">
+                <pre class="prettyprint">
+                    <code>
+    int[][][] arr = new int[3][3][3];</code>
+                </pre>
+            </section>
+            <br>
+            <h3>Acessing Elements and Traversal</h3>
+            <p>
+                When accessing multi-dimensional arrays, you must specify the index of each dimension.
+                For example, with a 2D array, you must use two sets of brackets with the indices you would like to access.
+            </p>
+            <section class="code" id="code">
+                <pre class="prettyprint">
+                    <code>
+    int[][] arr = {{5, 2, 6},
+                   {1, 3, 4},
+                   {9, 8, 7}};
+    
+    System.out.println(arr[2][1]); //prints 8</code>
+                </pre>
+            </section>
+            <p>
+                To traverse a multi-dimensional array, nested loops must be used.
+            </p>
+            <section class="code" id="code">
+                <pre class="prettyprint">
+                    <code>
+    for(int i = 0; i &lt; arr.length; i++) {
+        for(int j = 0; j &lt; arr[i].length; j++) {
+            arr[i][j]++; //increases the current element by one
+        }
+    }
+
+    for(int[] i : arr) {
+        for(int j : i) {
+            System.out.print(j + " "); //prints the current element
+        }
+        System.out.println();
+    }</code>
+                </pre>
+            </section>
+            <br>
+            <h2 id="arraylists">Arraylists</h2>
+            <p>
+                Simply put, an arraylist is a resizeable array, which means that their length can increase when needed.
+                However, arraylists can only hold objects, not primitive data types.
+                To hold primitive data types, an arraylist of its respective wrapper classes (e.g. <code>Integer</code> instead of <code>int</code>) must be used.
+                Arraylists also belong to the <code>java.util</code> library, meaning that this must be imported to use arraylists.
+            </p>
+            <section class="code" id="code">
+                <pre class="prettyprint">
+                    <code>
+    import java.util.List;
+    import java.util.ArrayList;
+    //or
+    import java.util.*;</code>
+                </pre>
+            </section>
+            <br>
+            <h3>Initialization</h3>
+            <p>
+                Just like arrays, arraylists are a class, meaning that they require the keyword <code>new</code> to instantiate.
+                However, unlike arrays, the values of the arraylist cannot be set while initializing.
+                The data type of the arraylist is set using the <code><</code> <code>></code> symbols.
+            </p>
+            <section class="code" id="code">
+                <pre class="prettyprint">
+                    <code>
+    ArrayList&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();</code>
+                </pre>
+            </section>
+            <br>
+            <h3>Methods</h3>
+            <p>
+                Arraylists in Java come with a large amount of methods.
+                These methods allows the user to access and modify the elements within the list.
+                Listed below are some of more useful arraylist methods. (E represents the data type of the arraylist)
+                <ul class="methods">
+                    <li><code>.add(E e)</code>: Adds e to the end of the list.</li>
+                    <li><code>.add(int i, E e)</code>: Adds e to the list at index i. Elements are shifted as necessary</li>
+                    <li><code>.remove(int i)</code>: Removes the element at index i from the list. Elements are shifted as necessary</li>
+                    <li><code>.get(int i)</code>: Returns the element at index i.</li>
+                    <li><code>.set(int i, E e)</code>: Changes the element at index i to e.</li>
+                    <li><code>.size()</code>: Returns the current number of elements in the list.</li>
+                    <li><code>.clear()</code>: Removes all elements from the list.</li>
+                    <li><code>.isEmpty()</code>: Returns true if the list contains no elements.</li>
+                </ul>
+            </p>
+            <h3>Accessing Elements and Traversal</h3>
+            <p>
+                Arraylist traversal is generally done using a for-each loop, although for loops are also used.
+            </p>
+            <section class="code" id="code">
+                <pre class="prettyprint">
+                    <code>
+    for(Integer num : list) {
+        System.out.print(num + " ");
+    }
+
+    for(int i = 0; i < list.size(); i++) {
+        System.out.print(list.get(i) + " ");
+    }</code>
+                </pre>
+            </section>
+        </main>
+        <footer>
+            <ul>
+                <li>
+                    <a href="https://mcpt.ca/user/rcshim04" title="MCPT">
+                        <div class="img">
+                            <img src="img/mcpt.png" class="imgcur" alt="MCPT" height="32">
+                            <img src="img/mcpt2.png" class="imgtop" alt="MCPT" height="36">
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://dmoj.ca/user/rcshim04" title="DMOJ">
+                        <div class="img">
+                            <img src="img/dmoj.png" class="imgcur" alt="DMOJ" height="32">
+                            <img src="img/dmoj2.png" class="imgtop" alt="DMOJ" height="36">
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/rcshim04" title="Github">
+                        <div class="img">
+                            <img src="img/github.png" class="imgcur" alt="Github" height="32">
+                            <img src="img/github2.png" class="imgtop" alt="Github" height="36">
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:rcshim04@gmail.com?subject=Hello!" title="Email">
+                        <div class="img">
+                            <img src="img/email.png" class="imgcur" alt="Email" height="32">
+                            <img src="img/email2.png" class="imgtop" alt="Email" height="36">
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <p>© 2020 Eric Shim</p>
+        </footer>
+    </body>
+</html>

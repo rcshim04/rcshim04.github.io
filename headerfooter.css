@@ -47,6 +47,7 @@ nav ul {
     list-style-type: none;
     overflow: hidden;
     background-color: #404040;
+    /*box-shadow: 0px 5px 16px 0px rgba(0,0,0,0.3);*/
 }
 nav ul li {
     float: left;
@@ -74,6 +75,7 @@ nav ul li .logo {
 }
 .drop:hover .dropdown {
     display: block;
+    /*box-shadow: 4px 4px 16px 0px rgba(0,0,0,0.3);*/
 }
 footer {
     position: fixed;
