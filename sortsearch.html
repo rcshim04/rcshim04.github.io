@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Eric Shim - Arrays/Arraylist Tutorial</title>
+        <link rel="stylesheet" href="headerfooter.css">
+        <link rel="stylesheet" href="style3.css">
+        <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+        <link rel="icon" href="img/favicon.ico">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li>
+                        <img src="img/logo2.png" class="logo" alt="Eric Shim" height="28">
+                        <a href="index.html" class="button button1">Eric Shim</a>
+                    </li>
+                    <li>
+                        <a href="aboutme.html" class="button button2">About Me</a>
+                    </li>
+                    <li class="drop">
+                        <a class="button button3">Tutorials</a>
+                        <div class="dropdown">
+                            <a href="oop.html">OOP</a>
+                            <a href="arraysarraylists.html">Arrays & Arraylists</a>
+                            <a href="sortsearch.html">Sorting & Searching</a>
+                            <a href="comingsoon.html">Recursion</a>
+                            <a href="sources.html">Sources</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="projects.html" class="button button4">Projects</a>
+                    </li>
+                    <a href="contact.html" class="button button5">Contact</a>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h1>Sorting and Searching</h1>
+            <p>
+                Sorting and searching algorithms are very important when working with large amounts of data.
+                When working with large data sets, the difference between a fast and slow algorithm can be quite significant,
+                so it is important to use an algorithm that is effective to your needs.
+            </p>
+            <ul class="contents">
+                <p>Concepts</p>
+                <li>
+                    <a href="#complexity">Time Complexity</a>
+                </li>
+                <li>
+                    <a href="#sort">Sorting Algorithms</a>
+                </li>
+                <li>
+                    <a href="#search">Searching Algorithms</a>
+                </li>
+            </ul>
+            <h2 id="complexity">Time Complexity</h2>
+            <p>
+                Time complexity is a term that will be used quite frequently when describing the algorithms below.
+                Time complexity describes the amount of time it takes to run an algorithm.
+                Since an algorithm's running time may vary depending on the data set it is running on, the worst-case time complexity is usually considered.
+                The worst-case time complexity is the maximum amount of time required for a data set of a given size.
+                Time complexity is generally expressed as a function of the data set size, called big O notation.
+            </p>
+            <br>
+            <img src="img/bigO.png" alt="Complexity Graph" height="400">
+            <h2 id="sort">Sorting Algorithms</h2>
+            <p>
+                A sorting algorithm is an algorithm that does exactly what it says on the package, it sorts a data structure into a specific order.
+            </p>
+            <br>
+            <h3>Bubble Sort</h3>
+            <p>
+                Bubble sort is the simplest sorting algorithm. It works by repeatedly swapping adjacent pairs of elements if they are in the wrong order.<br>
+                For example, to sort an array from smallest to largest:<br>
+                {<b>3</b>, <b>72</b>, 12, 47, 23} -> {<b>3</b>, <b>72</b>, 12, 47, 23}<br>
+                {3, <b>72</b>, <b>12</b>, 47, 23} -> {3, <b>12</b>, <b>72</b>, 47, 23}<br>
+                {3, 12, <b>72</b>, <b>47</b>, 23} -> {3, 12, <b>47</b>, <b>72</b>, 23}<br>
+                {3, 12, 47, <b>72</b>, <b>23</b>} -> {3, 12, 47, <b>23</b>, <b>72</b>}<br>
+                <br>
+                Obviously, the current array, {3, 12, 47, 23, 72}, isn't in order.
+                Bubble sort will repeat this swapping process until no swaps are made, meaning the array is sorted.
+            </p>
+            <section class="code">
+                <pre class="prettyprint">
+                    <code>
+    public static void bubbleSort(int[] arr) {
+        int n = arr.length;
+
+        for(int i = 0; i &lt; n; i++) {
+            for(int j = 0; j &lt; n-i-1; j++) {
+                if(arr[j] &lt; arr[j+1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+    }</code>
+                </pre>
+            </section>
+            <h4>Time complexity: O(n^2)</h4>
+            <p>
+                A more optimized implementation of this sort would be to check at the end of each inner loop to see if any swaps happened.
+                This is as simple as adding a boolean to the loop.
+            </p>
+            <section class="code">
+                <pre class="prettyprint">
+                    <code>
+    public static void bubbleSort(int[] arr) {
+        int n = arr.length;
+
+        for(int i = 0; i &lt; n; i++) {
+            boolean swapped = false;
+            for(int j = 0; j &lt; n-i-1; j++) {
+                if(arr[j] &lt; arr[j+1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                    swapped = true;
+                }
+                if(!swapped)
+                    break;
+            }
+        }
+    }</code>
+                </pre>
+            </section>
+            <h4>Worst and average time complexity: O(n^2)<br>Best time complexity: O(n)</h4>
+            <br>
+            <h3>Insertion Sort</h3>
+            <p>
+                An insertion sort is a simple sorting algorithm that sorts similarly to how one sorts playing cards in their hands.
+                For example, to sort an array from smallest to largest:<br>
+                {<b>3</b>, 72, 12, 47, 23} -> {<b>3</b>, 72, 12, 47, 23}<br>
+                {3, <b>72</b>, 12, 47, 23} -> {3, <b>72</b>, 12, 47, 23}<br>
+                {3, 72, <b>12</b>, 47, 23} -> {3, <b>12</b>, 72, 47, 23}<br>
+                {3, 12, 72, <b>47</b>, 23} -> {3, 12, <b>47</b>, 72, 23}<br>
+                {3, 12, 47, 72, <b>23</b>} -> {3, 12, <b>23</b>, 47, 72}<br>
+                <br>
+                Basically, the algorithm loops through the array, and "inserts" the current element into the correct location if the element is out of place.
+                In the case of this specific order (from smallest to largest), the algorithm moves the current element if it is smaller than the previous elements.
+            </p>
+            <section class="code">
+                <pre class="prettyprint">
+                    <code>
+    public static void insertionSort(int[] arr) {
+        for(int i = 0; i &lt; arr.length; i++) {
+            int key = arr[i];
+            int j = i-1;
+
+            while(j >= 0 && arr[j] > key) {
+                arr[j+1] = arr[j];
+                j--;
+            }
+            arr[j+1] = key;
+        }
+    }</code>
+                </pre>
+            </section>
+            <h4>Time complexity: O(n*2)</h4>
+            <br>
+            <h3>Merge Sort</h3>
+            <p>
+                Merge sort is a divide and conquer algorithm that is considerably faster than the previous sorts.
+                This algorithm works by <a href="comingsoon.html">recursively</a> halving itself until each subarray reaches a length of 1.
+                Then all the subarrays are recursively merged into sorted pairs until there is one final sorted array.
+            </p>
+            <img src="img/mergesort.png" alt="Merge Sort Diagram", height="400">
+            <section class="code">
+                <pre class="prettyprint">
+                    <code>
+    public static void merge(int[] arr, int left, int mid, int right) {
+        int n1 = mid-left+1;
+        int n2 = right-mid;
+
+        int L[] = new int[n1];
+        int R[] = new int[n2];
+
+        for(int i = 0; i &lt; n1; ++i)
+            L[i] = arr[left+i];
+        for(int j = 0; j &lt; n2; ++j)
+            R[j] = arr[mid+1+j];
+        
+        int i = 0, j = 0;
+        int k = left;
+
+        while(i &lt; n1 && j &lt; n2) {
+            if (L[i] &lt;= R[j]) {
+                arr[k] = L[i];
+                i++;
+            } else {
+                arr[k] = R[j];
+                j++;
+            }
+            k++;
+        }
+    
+        while(i &lt; n1) {
+            arr[k] = L[i];
+            i++;
+            k++;
+        }
+        while(j &lt; n2) {
+            arr[k] = R[j];
+            j++;
+            k++;
+        }
+    }
+
+    //left is for the left index and right is for the right index of the subarray to be sorted.
+    //left would be 0 and right would be arr.length-1 when calling the sort method
+    public static void mergeSort(int[] arr, int left, int right) {
+        if(left &lt; right) {
+            //finds the middle point
+            int mid = left+(right-left)/2;
+            
+            //sorts both halves
+            sort(arr, left, mid);
+            sort(arr, mid+1, right);
+            
+            //merges sorted halves
+            merge(arr, left, mid, right);
+        }
+    }</code>
+                </pre>
+            </section>
+            <h4>Time complexity: O(n log n)</h4>
+            <br>
+            <h2 id="search">Searching Algorithms</h2>
+            <p>
+                A searching algorithm is used when a specific value must be found within an array.
+            </p>
+            <br>
+            <h3>Sequential Search</h3>
+            <p>
+                Sequential search, or linear search, is a simple searching algorithm that traverses the entire array, while comparing the key value to each element.
+                The key value is compared to each element until the index of the key value is found, or until it has finished comparing the key to every element.
+            </p>
+            <section class="code">
+                <pre class="prettyprint">
+                    <code>
+    public static int linearSearch(int[] arr, int key) {
+        int n = arr.length;
+    
+        for(int i = 0; i &lt; n; i++) {
+            if(arr[i] == key)
+                return i;
+        }
+        return -1; //return -1 if the key is not found
+    }</code>
+                </pre>
+            </section>
+            <h4>Time complexity: O(n)</h4>
+            <br>
+            <h3>Binary Search</h3>
+            <p>
+                Binary search is a divide and conquer searching algorithm.
+                If searching through a sorted array, binary search is far more efficient than sequential search.
+                Binary search <a href="comingsoon.html">recursively</a> searches through the array by choosing the value in the middle of the array,
+                and comparing it to the key. Since this is a sorted array, if the middle value is larger than the key, the algorithm searches the lower half of the array.
+                If the middle value is smaller, it searches the upper half. It continues searching each chosen subarray until the value is found.
+            </p>
+            <img src="img/binarysearch.png" alt="Binary Search Diagram", height="200">
+            <section class="code">
+                <pre class="prettyprint">
+                    <code>
+    public static int binarySearch(int arr[], int left, int right, int key) {
+        if (right >= left) {
+            int mid = left+(right-left)/2;
+
+            //if the value is at the middle
+            if (arr[mid] == key)
+                return mid;
+            
+            //if the value is smaller than the middle, then it is in the left(smaller) subarray
+            if (arr[mid] > key)
+                return binarySearch(arr, left, mid-1, key);
+            
+            //else the value is larger, and is in the right(larger) subarray
+            return binarySearch(arr, mid+1, right, key);
+        }
+        return -1; //return -1 if the key is not found
+    }</code>
+                </pre>
+            </section>
+            <h4>Time complexity: O(log n)</h4>
+        </main>
+        <footer>
+            <ul>
+                <li>
+                    <a href="https://mcpt.ca/user/rcshim04" title="MCPT">
+                        <div class="img">
+                            <img src="img/mcpt.png" class="imgcur" alt="MCPT" height="32">
+                            <img src="img/mcpt2.png" class="imgtop" alt="MCPT" height="36">
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://dmoj.ca/user/rcshim04" title="DMOJ">
+                        <div class="img">
+                            <img src="img/dmoj.png" class="imgcur" alt="DMOJ" height="32">
+                            <img src="img/dmoj2.png" class="imgtop" alt="DMOJ" height="36">
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/rcshim04" title="Github">
+                        <div class="img">
+                            <img src="img/github.png" class="imgcur" alt="Github" height="32">
+                            <img src="img/github2.png" class="imgtop" alt="Github" height="36">
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:rcshim04@gmail.com?subject=Hello!" title="Email">
+                        <div class="img">
+                            <img src="img/email.png" class="imgcur" alt="Email" height="32">
+                            <img src="img/email2.png" class="imgtop" alt="Email" height="36">
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <p>© 2020 Eric Shim</p>
+        </footer>
+    </body>
+</html>

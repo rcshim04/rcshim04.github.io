@@ -25,7 +25,7 @@
                         <div class="dropdown">
                             <a href="oop.html">OOP</a>
                             <a href="arraysarraylists.html">Arrays & Arraylists</a>
-                            <a href="comingsoon.html">Sorting & Searching</a>
+                            <a href="sortsearch.html">Sorting & Searching</a>
                             <a href="comingsoon.html">Recursion</a>
                             <a href="sources.html">Sources</a>
                         </div>
@@ -71,7 +71,7 @@
                 The value within the second pair of square brackets determines the size or length of the array.
                 Remember that the length of the array is immutable. An array can be initialized in three ways:
             </p>
-            <section class="code" id="code">
+            <section class="code">
                 <pre class="prettyprint">
                     <code>
     int[] arr = new int[5];
@@ -87,7 +87,7 @@
                 a empty <code>boolean</code> array will be set to <code>false</code>,
                 and empty objects arrays will reference to <code>null</code>.
             </p>
-            <section class="code" id="code">
+            <section class="code">
                 <pre class="prettyprint">
                     <code>
     int[] intArray = new int[5]; //Will create an array of {0, 0, 0, 0, 0}
@@ -99,7 +99,7 @@
             <p>
                 Arrays can also be initialized using array literals. This can be done with braces and commas.
             </p>
-            <section class="code" id="code">
+            <section class="code">
                 <pre class="prettyprint">
                     <code>
     int[] arr = {1, 2, 3, 4, 5};</code>
@@ -110,7 +110,7 @@
             <p>
                 Elements in the array can be accessed by using the name of the array, followed by brackets with the index of the element.
             </p>
-            <section class="code" id="code">
+            <section class="code">
                 <pre class="prettyprint">
                     <code>
     int[] arr = {3, 10, 8, 2, 4};
@@ -120,7 +120,7 @@
             <p>
                 The length of an array is a <code>public final</code> field that can be accessed directly from the array.
             </p>
-            <section class="code" id="code">
+            <section class="code">
                 <pre class="prettyprint">
                     <code>
     int[] arr = {3, 10, 8, 2, 4};
@@ -130,7 +130,7 @@
             <p>
                 This allows for the traversal through the array of an unknown length, and allows the program to modify the elements of the array, using a for loop.
             </p>
-            <section class="code" id="code">
+            <section class="code">
                 <pre class="prettyprint">
                     <code>
     for(int i = 0; i &lt; arr.length; i++) {
@@ -144,7 +144,7 @@
                 This type of loop is used to access the elements within the array when it's not necessary for the elements to be modified.
                 Unlike a standard for loop, a for-each loop does not keep track of the index, and can only iterate forward in single steps.
             </p>
-            <section class="code" id="code">
+            <section class="code">
                 <pre class="prettyprint">
                     <code>
     int odd = 0;
@@ -166,7 +166,7 @@
             <p>
                 Just like a one-dimensional array, a 2D array can be initialized with or without a length, or with an array literal.
             </p>
-            <section class="code" id="code">
+            <section class="code">
                 <pre class="prettyprint">
                     <code>
     int[][] arr = new int[3][3];
@@ -191,7 +191,7 @@
                 For higher dimension arrays, continue the pattern by adding more bracket pairs and/or brace pairs.
                 For example:
             </p>
-            <section class="code" id="code">
+            <section class="code">
                 <pre class="prettyprint">
                     <code>
     int[][][] arr = new int[3][3][3];</code>
@@ -203,7 +203,7 @@
                 When accessing multi-dimensional arrays, you must specify the index of each dimension.
                 For example, with a 2D array, you must use two sets of brackets with the indices you would like to access.
             </p>
-            <section class="code" id="code">
+            <section class="code">
                 <pre class="prettyprint">
                     <code>
     int[][] arr = {{5, 2, 6},
@@ -216,7 +216,7 @@
             <p>
                 To traverse a multi-dimensional array, nested loops must be used.
             </p>
-            <section class="code" id="code">
+            <section class="code">
                 <pre class="prettyprint">
                     <code>
     for(int i = 0; i &lt; arr.length; i++) {
@@ -241,7 +241,7 @@
                 To hold primitive data types, an arraylist of its respective wrapper classes (e.g. <code>Integer</code> instead of <code>int</code>) must be used.
                 Arraylists also belong to the <code>java.util</code> library, meaning that this must be imported to use arraylists.
             </p>
-            <section class="code" id="code">
+            <section class="code">
                 <pre class="prettyprint">
                     <code>
     import java.util.List;
@@ -257,7 +257,7 @@
                 However, unlike arrays, the values of the arraylist cannot be set while initializing.
                 The data type of the arraylist is set using the <code><</code> <code>></code> symbols.
             </p>
-            <section class="code" id="code">
+            <section class="code">
                 <pre class="prettyprint">
                     <code>
     ArrayList&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();</code>
@@ -284,7 +284,7 @@
             <p>
                 Arraylist traversal is generally done using a for-each loop, although for loops are also used.
             </p>
-            <section class="code" id="code">
+            <section class="code">
                 <pre class="prettyprint">
                     <code>
     for(Integer num : list) {
