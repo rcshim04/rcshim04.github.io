@@ -53,7 +53,7 @@ main img {
 main li {
     list-style-position: inside;
 }
-main p ol {
+main ol {
     padding-left: 20px;
 }
 .methods {
@@ -64,6 +64,7 @@ footer {
 }
 pre {
     white-space: pre-wrap;
+    border-radius: 6px;
 }
 code {
     font-family: "Courier New", Courier, monospace;
@@ -74,6 +75,9 @@ code {
 .code {
     margin-bottom: 10px;
     background-color: #f2f2f2;
+}
+#ex {
+    margin-left: 20px;
 }
 @keyframes bottomFadeOut {
     0% {

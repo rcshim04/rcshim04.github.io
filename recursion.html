@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Eric Shim - Recursion Tutorial</title>
+        <link rel="stylesheet" href="headerfooter.css">
+        <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+        <link rel="stylesheet" href="style3.css">
+        <link rel="icon" href="img/favicon.ico">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li>
+                        <img src="img/logo2.png" class="logo" alt="Eric Shim" height="28">
+                        <a href="index.html" class="button button1">Eric Shim</a>
+                    </li>
+                    <li>
+                        <a href="aboutme.html" class="button button2">About Me</a>
+                    </li>
+                    <li class="drop">
+                        <a class="button button3">Tutorials</a>
+                        <div class="dropdown">
+                            <a href="oop.html">OOP</a>
+                            <a href="arraysarraylists.html">Arrays & Arraylists</a>
+                            <a href="sortsearch.html">Sorting & Searching</a>
+                            <a href="recursion.html">Recursion</a>
+                            <a href="sources.html">Sources</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="projects.html" class="button button4">Projects</a>
+                    </li>
+                    <a href="contact.html" class="button button5">Contact</a>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h1>Recursion</h1>
+            <p>
+                Recursion is a method of solving problems that uses functions that call themselves within their own code.
+                A recursive method has two parts: a base case and a non-base case.
+                A base case tells the method when to stop recursing, and the non-base case continues the recursion.
+                The end output is the combination of all the results of each method call that happened.<br>
+                In order to solve a problem recursively, three criteria must be met:
+                <ol>
+                    <li>
+                        The problem must be capable of being broken down into smaller and repetitive elements or sub-problems.
+                    </li>
+                    <li>
+                        There must be a recognizable endpoint or base case.
+                    </li>
+                    <li>
+                        The problem must be able to be solved from the solutions of the smaller sub-problems.
+                    </li>
+                </ol>
+                <br>
+                There are many benefits to recursion, including shorter and simpler solutions to problems.
+                However, because recursion calls an entire function repeatedly, it takes up more space in memory.
+                Each method calls adds to memory and the overall time taken to complete the recursion.
+            </p>
+            <ul class="contents">
+                <p>Concepts</p>
+                <li>
+                    <a href="#linear">Linear Recursion</a>
+                </li>
+                <li>
+                    <a href="#tail">Tail Recursion</a>
+                </li>
+                <li>
+                    <a href="#mutual">Mutual Recursion</a>
+                </li>
+            </ul>
+            <h2 id="linear">Linear Recursion</h2>
+            <p>
+                Linear Recursion, or just recursion, is the most basic of recursion variants.
+                It is a singular method that calls itself continuously until the program reaches the base case.
+                An example of a simple recursive method is a factorial.
+            </p>
+            <section class="code">
+                <pre class="prettyprint">
+                    <code>
+    public static int factorial(int n) {
+        //base case
+        if(n == 1)
+            return n;
+        //non-base case
+        return n*factorial(n-1);
+    }</code>
+                </pre>
+            </section>
+            <p>
+                The program calculates the factorial by calling the method repeatedly with decreasing values.
+                The method calls look like this:<br>
+                <div id="ex">
+                    <code>
+                    factorial(4)<br>
+                    4 * factorial(3)<br>
+                    4 * 3 * factorial(2)<br>
+                    4 * 3 * 2 * factorial(1)<br>
+                    4 * 3 * 2 * 1<br>
+                    4 * 3 * 2<br>
+                    4 * 6<br>
+                    24
+                    </code>
+                </div>
+            </p>
+            <p>
+                However, it may be difficult to understand recursion right away just by looking at text.
+                Below is a visual representation of a simple recursive function, as well as its pseudocode.
+            </p>
+            <img src="img/recursivebranch2.gif" alt="Recursive Branching Animation" height="400">
+            <h4>
+                For the sake of a visually pleasing image, this example uses tree recursion.
+                However, the concept is the exact same as linear recursion.
+                The only difference is that the method calls itself multiple times per method in tree recursion whereas in linear recursion the method calls itself once per method.
+            </h4>
+            <br>
+            <section class="code">
+                <pre class="prettyprint">
+                    <code>
+    function branch(len)
+        drawLine from 0, 0 to 0, -len
+        If len is greater than 50 Then
+            translate by 0 and -len
+            rotate 36 degrees
+            branch(len*0.67) #right branch
+            rotate -72 degrees
+            branch(len*0.67) #left branch</code>
+                </pre>
+            </section>
+            <p>
+                In this case, since the method is not returning anything, the base case is simply not calling the non-base case.
+                As we can see, the function will draw a branch, then add two smaller branches to the end of the current branch.
+                Those smaller branches will add two smaller branches to themselves, and this will repeat until the length of the branch is less than 50.
+                The translate and rotation simply moves the branch to the end of the previous branch.
+                This type of visual recursion can be expanded to create a fractal tree, the code for which can be found in <a href="https://github.com/rcshim04/RecursiveFractalTree">here</a>.
+            </p>
+            <br>
+            <h2 id="tail">Tail Recursion</h2>
+            <p>
+                Tail recursion is a form of recursion where the recursive call is the last thing executed by the function.
+                The idea behind tail recursion is that since the recursive call is the last statement,
+                there is nothing left to do in the current function, so it is unnecessary to save the current stack to memory.
+                Since it doesn't have to save anything, it is more efficient.
+                It is possible to rewrite the linear recursive factorial method as a tail recursive method.
+            </p>
+            <section class="code">
+                <pre class="prettyprint">
+                    <code>
+    public static int factorial(int n) {
+        return factorialTail(n-1, 1);
+    }
+
+    public static int factorialTail(int n, int a) {
+        if(n == 0)
+            return a;
+        return factorialTail(n-1, n*a);
+    }</code>
+                </pre>
+            </section>
+            <p>
+                So what is different? Notice that in the linear recursion method,
+                the recursive call is <code>n*factorial(n-1)</code> whereas the recursive call is <code>factorialTail(n-1, a)</code> in the tail recursion.
+                In the linear recursion method, the stack must be saved to memory, as it still has to perform <code>n*</code> on the returned value.
+                However, in the tail recursion method, <code>n*</code> is instead stored in variable <code>a</code>,
+                which stores the total product of all the previous multiplicands.
+                Therefore the stack no longer has to be saved to memory.
+            </p>
+            <br>
+            <h2 id="mutual">Mutual Recursion</h2>
+            <p>
+                Mutual recursion is a form of recursion where there are multiple methods that call eachother.
+                One method calls the other, which then calls the first.
+                This continues until the base case is reached. At least one of the methods must have the base case.
+                A simple, but inefficient example of mutual recursion is to use two methods to determine if a number is even or odd.
+            </p>
+            <section class="code">
+                <pre class="prettyprint">
+                    <code>
+    public static boolean even(int n) {
+        if(n == 0)
+            return true;
+        return odd(n-1);
+    }
+    public static boolean odd(int n) {
+        if(n == 0)
+            return false;
+        return even(n-1);
+    }</code>
+                </pre>
+            </section>
+            <p>
+                The idea behind this is to toss the decreasing value back and forth between the two methods.
+                Since the methods alternate, any odd number would finish in the <code>odd(n)</code> method, and any even number would finish in <code>even(n)</code>.
+                The user would call the <code>even(n)</code> method to check if the number is even.
+                It will return <code>true</code> if it is even, and <code>false</code> if it's not.
+            </p>
+        </main>
+        <footer>
+            <ul>
+                <li>
+                    <a href="https://mcpt.ca/user/rcshim04" title="MCPT">
+                        <div class="img">
+                            <img src="img/mcpt.png" class="imgcur" alt="MCPT" height="32">
+                            <img src="img/mcpt2.png" class="imgtop" alt="MCPT" height="36">
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://dmoj.ca/user/rcshim04" title="DMOJ">
+                        <div class="img">
+                            <img src="img/dmoj.png" class="imgcur" alt="DMOJ" height="32">
+                            <img src="img/dmoj2.png" class="imgtop" alt="DMOJ" height="36">
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/rcshim04" title="Github">
+                        <div class="img">
+                            <img src="img/github.png" class="imgcur" alt="Github" height="32">
+                            <img src="img/github2.png" class="imgtop" alt="Github" height="36">
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:rcshim04@gmail.com?subject=Hello!" title="Email">
+                        <div class="img">
+                            <img src="img/email.png" class="imgcur" alt="Email" height="32">
+                            <img src="img/email2.png" class="imgtop" alt="Email" height="36">
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <p>© 2020 Eric Shim</p>
+        </footer>
+    </body>
+</html>
