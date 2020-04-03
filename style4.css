@@ -40,6 +40,11 @@ footer {
 footer .imgtop {
     bottom: -10px;
 }
+#logo {
+    position: relative;
+    padding-left: 2px;
+    top: -3px;
+}
 @keyframes bottomFadeOut {
     0% {
       position: relative;

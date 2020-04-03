@@ -21,7 +21,7 @@ body {
 }
 .button1 {
     padding: 11px 24px;
-    padding-left: 48px;
+    padding-left: 16px;
     font-size: 22px;
 }
 .button2:hover {
@@ -52,10 +52,14 @@ nav ul {
 nav ul li {
     float: left;
 }
-nav ul li .logo {
-    position: absolute;
-    padding-left: 16px;
-    padding-top: 13px;
+#logo {
+    position: relative;
+    padding-left: 2px;
+    top: 4px;
+}
+#name {
+    float: right;
+    padding-left: 6px;
 }
 .dropdown {
     display: none;
