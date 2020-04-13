@@ -79,6 +79,9 @@ code {
 #ex {
     margin-left: 20px;
 }
+#ex2 b {
+    color: #404040;
+}
 @keyframes bottomFadeOut {
     0% {
       position: relative;
