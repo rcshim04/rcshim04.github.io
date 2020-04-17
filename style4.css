@@ -40,7 +40,7 @@ footer {
 footer .imgtop {
     bottom: -10px;
 }
-#logo {
+nav #logo {
     position: relative;
     padding-left: 2px;
     top: -3px;
