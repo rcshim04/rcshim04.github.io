@@ -187,40 +187,90 @@
                 <a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
             </div>
-            <h2>Current Projects</h2>
             <h3>Sorting Visualizer</h3>
             <p>
-                This is a program that visualizes a variety of types of sorts, such as bubble sort and quicksort, in Processing and Java.
-                The code for this program is coming soon.
+                This is a program that visualizes a variety of types of sorts, such as bubble sort and merge sort, in Java.
+                The code for this program can be found <a href="https://github.com/rcshim04/Sorting-Visualizer" target="blank">here</a>.
             </p>
             <div class="slideshow-container">
                 <div class="slides3">
                     <img src="img/sortingvisual/sort1.PNG" alt="Sorting Visualizer" style="width:100%">
                     <div class="caption">
-                        <p>Finished Sort</p>
+                        <p>Sort Selection Menu</p>
                     </div>
                 </div>
                 <div class="slides3">
                     <img src="img/sortingvisual/sort2.PNG" alt="Sorting Visualizer" style="width:100%">
                     <div class="caption">
-                        <p>Shuffling</p>
+                        <p>Design Selection Menu</p>
                     </div>
                 </div>
                 <div class="slides3">
                     <img src="img/sortingvisual/sort3.PNG" alt="Sorting Visualizer" style="width:100%">
                     <div class="caption">
-                        <p>Bubble Sort 1</p>
+                        <p>Shuffling...</p>
                     </div>
                 </div>
                 <div class="slides3">
                     <img src="img/sortingvisual/sort4.PNG" alt="Sorting Visualizer" style="width:100%">
                     <div class="caption">
-                        <p>Bubble Sort 2</p>
+                        <p>Merge Sort (Bars)</p>
+                    </div>
+                </div>
+                <div class="slides3">
+                    <img src="img/sortingvisual/sort5.PNG" alt="Sorting Visualizer" style="width:100%">
+                    <div class="caption">
+                        <p>Finished Sort</p>
+                    </div>
+                </div>
+                <div class="slides3">
+                    <img src="img/sortingvisual/sort6.PNG" alt="Sorting Visualizer" style="width:100%">
+                    <div class="caption">
+                        <p>Merge Sort (Bars) Color Mode</p>
                     </div>
                 </div>
                 <a class="prev" onclick="plusSlides(-1, 2)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1, 2)">&#10095;</a>
             </div>
+            <h3>Actually An Agenda</h3>
+            <p>
+                This is a website that uses machine-learning to generate the best schedule based on the given tasks and user habits.
+                The website stores user data using Google's Firebase database.
+                This website was created as a hack for the <a href="https://www.tohacks.ca/" target="blank">TOHacks 2020 Hackathon</a>.
+                Partners:
+                <a href="https://github.com/yeahbennou" target="blank">Ben Zeng</a>,
+                <a href="https://github.com/saltyRavioli" target="blank">Nathan Lu</a>,
+                <a href="https://github.com/hewmatt10" target="blank">Matthew Li</a>
+            </p>
+            <div class="slideshow-container">
+                <div class="slides4">
+                    <img src="img/aaa/aaa1.png" alt="Actually An Agenda" style="width:100%">
+                    <div class="caption">
+                        <p>Login Page</p>
+                    </div>
+                </div>
+                <div class="slides4">
+                    <img src="img/aaa/aaa2.png" alt="Actually An Agenda" style="width:100%">
+                    <div class="caption">
+                        <p>Task List</p>
+                    </div>
+                </div>
+                <div class="slides4">
+                    <img src="img/aaa/aaa3.png" alt="Actually An Agenda" style="width:100%">
+                    <div class="caption">
+                        <p>New Task</p>
+                    </div>
+                </div>
+                <div class="slides4">
+                    <img src="img/aaa/aaa4.png" alt="Actually An Agenda" style="width:100%">
+                    <div class="caption">
+                        <p>Sidebar</p>
+                    </div>
+                </div>
+                <a class="prev" onclick="plusSlides(-1, 3)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1, 3)">&#10095;</a>
+            </div>
+            <h2>Current Projects</h2>
             <h3>ShimmyBot</h3>
             <p>
                 A personal Discord bot that is currently under development.
@@ -233,12 +283,19 @@
                 Currently under development.
                 Images and the code for this program coming soon.
             </p>
+            <h3>ICS4UO - ISP (COVID Cashier)</h3>
+            <p>
+                A program being written for my ICS4UO final project.
+                An original educational autoscroller game, focused on the 2019 Novel Coronavirus pandemic.
+                Currently under development.
+            </p>
             <script>
-                var slideIndex = [1,1,1];
-                var slideId = ["slides1", "slides2", "slides3"];
+                var slideIndex = [1,1,1,1];
+                var slideId = ["slides1", "slides2", "slides3", "slides4"];
                 showSlides(1, 0);
                 showSlides(1, 1);
                 showSlides(1, 2);
+                showSlides(1, 3);
                 
                 function plusSlides(n, no) {
                     showSlides(slideIndex[no] += n, no);

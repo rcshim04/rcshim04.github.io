@@ -31,9 +31,6 @@ main p {
     padding-top: 5px;
     padding-bottom: 10px;
 }
-main p a {
-    color: #0099ff;
-}
 footer {
     position: relative;
 }

@@ -39,6 +39,17 @@ body {
 .button5:hover {
     color: #0099ff;
 }
+.linked {
+    color: #0099ff;
+    border: none;
+    background-color: inherit;
+    padding: 15px 0px;
+    font-size: 18px;
+    margin-right: 50px;
+}
+main p a {
+    color: #0099ff;
+}
 nav{
     width: 100%;
     top: 0;
