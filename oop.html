@@ -588,10 +588,51 @@
             <br>
             <h3>Interfaces</h3>
             <p>
-                
+                Similarly to an abstract class, an interface is a collection of abstract methods and constants.
+                By default, methods in an interface are <code>public</code> and <code>abstract</code>, and variables are <code>public</code>, <code>static</code>, and <code>final</code>.
+                Interfaces do not have a constructor, and cannot be instantiated.
+                None of the methods in an interface have an implementation; it only has the method header and parameters.
+                An interface can extend other interfaces, but cannot implement an interface.
+                They also disregard hierarchy, meaning they can be implemented by any class.
+                Different from superclasses, a class can implement multiple interfaces, while it can only extend one superclass.
             </p>
-            <br>
-            <h2><br>More coming soon</h2>
+            <p>
+                The keywords used for interfaces is <code>interface</code> and <code>implements</code>.
+            </p>
+            <section class="code">
+                <pre class="prettyprint">
+                    <code>
+    //interface 1
+    public interface Shape {
+
+        double area();
+
+    }
+    //interface 2
+    public interface Shape3D {
+
+        double volume();
+
+    }
+    //implementing class
+    public class Sphere implements Shape, Shape3D {
+        
+        double radius;
+
+        public Sphere(double r) {
+            radius = r;
+        }
+
+        public double area() {
+            return 4 * Math.PI * radius * radius;
+        }
+
+        public double volume() {
+            return (4.0/3) * Math.PI * radius * radius * radius;
+        }
+    }</code>
+                </pre>
+            </section>
             <script>
                 var button = document.getElementById("toTop");
                 window.onscroll = function() {scrollFunction()};
