@@ -23,7 +23,7 @@
                         <a class="button button3">Tutorials</a>
                         <div class="dropdown">
                             <a href="oop.html">OOP</a>
-                            <a href="arraysarraylists.html">Arrays & Arraylists</a>
+                            <a href="arraysarraylists.html" style="color: #0099ff; font-weight: 600;">Arrays & Arraylists</a>
                             <a href="sortsearch.html">Sorting & Searching</a>
                             <a href="recursion.html">Recursion</a>
                             <a href="sources.html">Sources</a>
@@ -37,6 +37,7 @@
             </nav>
         </header>
         <main>
+            <button onclick="topFunction()" id="toTop" title="Go to top">Top</button>
             <h1>Arrays and Arraylists</h1>
             <p>
                 Arrays and arraylists are data structures that are used to store large collections of data of the same type, in one place.
@@ -295,6 +296,21 @@
     }</code>
                 </pre>
             </section>
+            <script>
+                var button = document.getElementById("toTop");
+                window.onscroll = function() {scrollFunction()};
+                
+                function scrollFunction() {
+                    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20)
+                        button.style.display = "block";
+                    else
+                        button.style.display = "none";
+                }
+                function topFunction() {
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
+                }
+            </script>
         </main>
         <footer>
             <ul>

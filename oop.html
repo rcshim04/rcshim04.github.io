@@ -22,7 +22,7 @@
                     <li class="drop">
                         <a class="button button3">Tutorials</a>
                         <div class="dropdown">
-                            <a href="oop.html">OOP</a>
+                            <a href="oop.html" style="color: #0099ff; font-weight: 600;">OOP</a>
                             <a href="arraysarraylists.html">Arrays & Arraylists</a>
                             <a href="sortsearch.html">Sorting & Searching</a>
                             <a href="recursion.html">Recursion</a>
@@ -37,6 +37,7 @@
             </nav>
         </header>
         <main>
+            <button onclick="topFunction()" id="toTop" title="Go to top">Top</button>
             <h1>Object-Oriented Programming</h1>
             <p>
                 Object-oriented programming, or OOP, refers to a style of computer programming in which the programmer defines the data type of a data structure,
@@ -48,6 +49,9 @@
                 <p>Concepts</p>
                 <li>
                     <a href="#objectsclasses">Objects & Classes</a>
+                </li>
+                <li>
+                    <a href="#accessmods">Access Modifiers</a>
                 </li>
                 <li>
                     <a href="#encapsulation">Encapsulation</a>
@@ -127,6 +131,63 @@
     }</code>
                 </pre>
             </section>
+            <br>
+            <h2 id="accessmods">Access Modifiers</h2>
+            <p>
+                Access modifiers in Java help restrict the scope of a class, constructor, field or method.<br>
+                There are 4 types of access modifiers:<br>
+                <ol>
+                    <li>Default (No keyword)</li>
+                    <li>Private</li>
+                    <li>Protected</li>
+                    <li>Public</li>
+                </ol>
+                <br>
+                <table>
+                    <tr>
+                        <th style="text-align: left;">Visibility</th>
+                        <th>Default</th>
+                        <th>Private</th>
+                        <th>Protected</th>
+                        <th>Public</th>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">Same Class</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">Same Package Subclass</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">Same Package Non-Subclass</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">Different Package Subclass</td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left;">Different Package Non-Subclass</td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>No</td>
+                        <td>Yes</th>
+                    </tr>
+                </table>
+            </p>
             <br>
             <h2 id="encapsulation">Encapsulation</h2>
             <p>
@@ -467,6 +528,21 @@
             <h2 id="abstraction">Abstraction</h2>
             <br>
             <h2><br>More coming soon</h2>
+            <script>
+                var button = document.getElementById("toTop");
+                window.onscroll = function() {scrollFunction()};
+                
+                function scrollFunction() {
+                    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20)
+                        button.style.display = "block";
+                    else
+                        button.style.display = "none";
+                }
+                function topFunction() {
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
+                }
+            </script>
         </main>
         <footer>
             <ul>

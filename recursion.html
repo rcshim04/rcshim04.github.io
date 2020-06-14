@@ -25,7 +25,7 @@
                             <a href="oop.html">OOP</a>
                             <a href="arraysarraylists.html">Arrays & Arraylists</a>
                             <a href="sortsearch.html">Sorting & Searching</a>
-                            <a href="recursion.html">Recursion</a>
+                            <a href="recursion.html" style="color: #0099ff; font-weight: 600;">Recursion</a>
                             <a href="sources.html">Sources</a>
                         </div>
                     </li>
@@ -37,6 +37,7 @@
             </nav>
         </header>
         <main>
+            <button onclick="topFunction()" id="toTop" title="Go to top">Top</button>
             <h1>Recursion</h1>
             <p>
                 Recursion is a method of solving problems that uses functions that call themselves within their own code.
@@ -198,6 +199,21 @@
                 The user would call the <code>even(n)</code> method to check if the number is even.
                 It will return <code>true</code> if it is even, and <code>false</code> if it's not.
             </p>
+            <script>
+                var button = document.getElementById("toTop");
+                window.onscroll = function() {scrollFunction()};
+                
+                function scrollFunction() {
+                    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20)
+                        button.style.display = "block";
+                    else
+                        button.style.display = "none";
+                }
+                function topFunction() {
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
+                }
+            </script>
         </main>
         <footer>
             <ul>

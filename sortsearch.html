@@ -24,7 +24,7 @@
                         <div class="dropdown">
                             <a href="oop.html">OOP</a>
                             <a href="arraysarraylists.html">Arrays & Arraylists</a>
-                            <a href="sortsearch.html">Sorting & Searching</a>
+                            <a href="sortsearch.html" style="color: #0099ff; font-weight: 600;">Sorting & Searching</a>
                             <a href="recursion.html">Recursion</a>
                             <a href="sources.html">Sources</a>
                         </div>
@@ -37,6 +37,7 @@
             </nav>
         </header>
         <main>
+            <button onclick="topFunction()" id="toTop" title="Go to top">Top</button>
             <h1>Sorting and Searching</h1>
             <p>
                 Sorting and searching algorithms are very important when working with large amounts of data.
@@ -291,6 +292,21 @@
                 </pre>
             </section>
             <h4>Time complexity: O(log n)</h4>
+            <script>
+                var button = document.getElementById("toTop");
+                window.onscroll = function() {scrollFunction()};
+                
+                function scrollFunction() {
+                    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20)
+                        button.style.display = "block";
+                    else
+                        button.style.display = "none";
+                }
+                function topFunction() {
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
+                }
+            </script>
         </main>
         <footer>
             <ul>

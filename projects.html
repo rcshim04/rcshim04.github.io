@@ -37,6 +37,7 @@
             </nav>
         </header>
         <main>
+            <button onclick="topFunction()" id="toTop" title="Go to top">Top</button>
             <h1>My Projects</h1>
             <h2>Past Projects</h2>
             <h3>ICS2O3 - ISP (Wordsearch)</h3>
@@ -312,7 +313,21 @@
                     x[slideIndex[no]-1].style.display = "block";  
                 }
             </script>
-            
+            <script>
+                var button = document.getElementById("toTop");
+                window.onscroll = function() {scrollFunction()};
+                
+                function scrollFunction() {
+                    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20)
+                        button.style.display = "block";
+                    else
+                        button.style.display = "none";
+                }
+                function topFunction() {
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
+                }
+            </script>
         </main>
         <footer>
             <ul>
