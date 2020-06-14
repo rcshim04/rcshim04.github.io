@@ -526,6 +526,70 @@
             </p>
             <br>
             <h2 id="abstraction">Abstraction</h2>
+            <p>
+                Data abstraction is the displaying of only the important details of an object to the user.
+                The user will only know what the object does, and not how it does it.
+                Abstraction can be achieved using either abstract classes or interfaces.
+            </p>
+            <br>
+            <h3>Abstract Classes</h3>
+            <p>
+                The sole purpose of an abstract class is to be extended.
+                It provides a basic outline of an object which is later defined by its subclass.
+                Abstract methods are declared without an implementation, meaning that it does not have a method body.
+                Because of this, inherited abstract methods must be redefined in the subclass,
+                therefore making it mandatory to override the method or make the subclass itself abstract as well.
+                However, it is not necessary that every method in an abstract class must be abstract, some methods may be concrete as well.
+            </p>
+            <p>
+                The keyword used for abstraction is <code>abstract</code>.
+            </p>
+            <section class="code">
+                <pre class="prettyprint">
+                    <code>
+    //abstract class
+    public abstract class Shape {
+
+        public abstract double area();
+
+        public abstract String toString();
+
+    }
+    //subclass
+    public class Circle extends Shape {
+        
+        double radius;
+
+        public Circle(double r) {
+            radius = r;
+        }
+
+        @Override
+        public double area() {
+            return Math.PI * radius * radius;
+        }
+
+        @Override
+        public String toString() {
+            return "The area of this circle is " + area() + "u^2";
+        }
+    }</code>
+                </pre>
+            </section>
+            <p>
+                An abstract class is unable to be instantiated unless it has a subclass.
+            </p>
+            <section class="code">
+                <pre class="prettyprint">
+                    <code>
+    Shape circle = new Circle;</code>
+                </pre>
+            </section>
+            <br>
+            <h3>Interfaces</h3>
+            <p>
+                
+            </p>
             <br>
             <h2><br>More coming soon</h2>
             <script>
