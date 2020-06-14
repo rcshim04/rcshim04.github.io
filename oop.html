@@ -50,7 +50,16 @@
                     <a href="#objectsclasses">Objects & Classes</a>
                 </li>
                 <li>
+                    <a href="#encapsulation">Encapsulation</a>
+                </li>
+                <li>
                     <a href="#inheritance">Inheritance</a>
+                </li>
+                <li>
+                    <a href="#polymorphism">Polymorphism</a>
+                </li>
+                <li>
+                    <a href="#abstraction">Abstraction</a>
                 </li>
             </ul>
             <h2 id="objectsclasses">Objects & Classes</h2>
@@ -75,18 +84,81 @@
                     <code>
     public class Dog {
 
-        private String name;
-        private int age;
-        private String colour;
+        public String name;
+        public int age;
 
-        public Dog(String name, int age, String colour) {
+        //default constructor
+        public Dog() {
+            name = "";
+            age = 1;
+        }
+
+        public Dog(String name, int age) {
             this.name = name;
             this.age = age;
-            this.colour = colour;
         }
 
         public void bark() {
+            System.out.println("Woof");
+        }
+
+        public void sleep() {
             //implementation not shown
+        }
+
+        public void eat() {
+            //implementation not shown
+        }
+    }</code>
+                </pre>
+            </section>
+            <section class="code">
+                <pre class="prettyprint">
+                    <code>
+    public class Main {
+        
+        public static void main(String[] args) {
+            Dog dog = new Dog();
+            dog.name = "Scooby";
+            dog.age++;
+
+            System.out.println(dog.name + " is " + dog.age + " years old.");
+        }
+    }</code>
+                </pre>
+            </section>
+            <br>
+            <h2 id="encapsulation">Encapsulation</h2>
+            <p>
+                Encapsulation is an object-oriented programming technique that wraps data under a single unit.
+                Essentially, it shields data in a class from being accessed by code outside of itself.
+                Because of this, encapsulation is also known as data-hiding.
+                The variables of the class are hidden from other classes, and so the user cannot directly access the object's data.
+                Data can only be accessed and modified using methods from its own class, such as accessor and mutator methods.
+                To hide variables from other classes, the keyword <code>private</code> is used.
+                It is possible to rewrite the <code>Dog</code> class from above using encapsulation:
+            </p>
+            <section class="code">
+                <pre class="prettyprint">
+                    <code>
+    public class Dog {
+
+        private String name;
+        private int age;
+
+        //default constructor
+        public Dog() {
+            name = "";
+            age = 1;
+        }
+
+        public Dog(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        public void bark() {
+            System.out.println("Woof");
         }
 
         public void sleep() {
@@ -112,16 +184,288 @@
         public void growOlder() {
             age++;
         }
-        
-        public String getColour() {
-            return colour;
-        }
-    }
-                    </code>
+    }</code>
                 </pre>
             </section>
+            <p>
+                This class is encapsulated because the variables are <code>private</code> and the accessor/mutator methods are <code>public</code>.
+                Any class that wants to access the data of the <code>Dog</code> class will have to use these methods.
+            </p>
+            <section class="code">
+                <pre class="prettyprint">
+                    <code>
+    public class Main {
+        
+        public static void main(String[] args) {
+            Dog dog = new Dog();
+            dog.setName("Scooby");
+            dog.growOlder();
+
+            System.out.println(dog.getName() + " is " + dog.getAge() + " years old.");
+        }
+    }</code>
+                </pre>
+            </section>
+            <br>
             <h2 id="inheritance">Inheritance</h2>
             <h3>Superclasses and Subclasses</h3>
+            <p>
+                Inheritance is an important mechanism in Java that allows a class to inherit the fields and methods of another class.
+                A superclass is the class whose features will be inherited by the subclass. Think of the subclass as a child of the superclass.
+                It inherits features from its parent class, but it can add its own fields and methods in addition to the inherited fields and methods.
+            </p>
+            <p>
+                The keyword used for inheritance is <code>extends</code>.
+            </p>
+            <section class="code">
+                <pre class="prettyprint">
+                    <code>
+    //superclass
+    public class Shape {
+        //implementation not shown
+    }
+    //subclass
+    public class Circle extends Shape {
+        //implementation not shown
+    }</code>
+                </pre>
+            </section>
+            <p>
+                A subclass will inherit all <code>public</code> and <code>protected</code> members of its superclass, but not any <code>private</code> members.
+                However, if the superclass has any mutator or accessor methods, the subclass can use these to access and modify private fields of the superclass.
+                To call the superclass constructor from the subclass, the keyword <code>super</code> is used to replace what would normally be the superclass name.
+                It is possible to rewrite the <code>Dog</code> class from above using inheritance:
+            </p>
+            <section class="code">
+                <pre class="prettyprint">
+                    <code>
+    public class Animal {
+
+        private String name;
+        private int age;
+
+        //default constructor
+        public Animal() {
+            name = "";
+            age = 1;
+        }
+
+        public Animal(String name, int age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        public void sleep() {
+            //implementation not shown
+        }
+
+        public void eat() {
+            //implementation not shown
+        }
+
+        public String getName() {
+            return name;
+        }
+        
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public int getAge() {
+            return age;
+        }
+
+        public void growOlder() {
+            age++;
+        }
+    }
+
+    public class Dog extends Animal {
+
+        //default constructor
+        public Dog() {
+            super();
+        }
+
+        public Dog(String name, int age) {
+            super(name, age);
+        }
+
+        public void bark() {
+            System.out.println("Woof");
+        }
+    }</code>
+                </pre>
+            </section>
+            <br>
+            <h3>Inheritance Types</h3>
+            <p>
+                There are several types of inheritance that Java supports, the main three being single inheritance, multilevel inheritance, and hierarchical inheritance.
+                These relationships are shown below using arrows that point from the subclass to the superclass.
+                The arrows represent an is-a relationship between the classes.
+            </p>
+            <p>
+                <b>Single Inheritance</b>
+            </p>
+            <img src="img/singleinheritance.png" alt="Single Inheritance" width="150px">
+            <h4>Source: javatpoint</h4>
+            <p>
+                In single inheritance, the subclass inherits the features of the superclass. It is the most basic of inheritance types.
+            </p>
+            <br>
+            <p>
+                <b>Multilevel Inheritance</b>
+            </p>
+            <img src="img/multilevelinheritance.png" alt="Multilevel Inheritance" width="150px">
+            <h4>Source: javatpoint</h4>
+            <p>
+                In multilevel inheritance, the subclass also serves as a superclass to another class.
+                In the image, ClassA serves as a superclass to ClassB, which in turn is the superclass of ClassC.
+                ClassC ends up implicitly inheriting the fields and methods of ClassA by inheriting the fields and methods of ClassB.
+            </p>
+            <br>
+            <p>
+                <b>Hierarchical Inheritance</b>
+            </p>
+            <img src="img/hierarchicalinheritance.png" alt="Hierarchical Inheritance" height="150px">
+            <h4>Source: javatpoint</h4>
+            <p>
+                In hierarchical inheritance, a single class serves as the superclass to multiple subclasses.
+            </p>
+            <br>
+            <h3>Class Casting</h3>
+            <p>
+                When initializing superclasses and subclasses, class casting may be needed.
+                A subclass can be upcasted to a superclass, and this is handled by Java automatically.
+            </p>
+            <section class="code">
+                <pre class="prettyprint">
+                    <code>
+    Animal animal = new Dog();</code>
+                </pre>
+            </section>
+            <p>
+                However, a superclass must be manually downcasted to a subclass.
+            </p>
+            <section class="code">
+                <pre class="prettyprint">
+                    <code>
+    Dog dog = (Dog) animal;</code>
+                </pre>
+            </section>
+            <br>
+            <h2 id="polymorphism">Polymorphism</h2>
+            <p>
+                Polymorphism means "to have many forms". Simply put, a method can have several forms in a class.
+            </p>
+            <br>
+            <h3>Method Overloading</h3>
+            <p>
+                When there are multiple methods with the same name but with different parameters in class, these methods are said to be overloaded.
+                Methods can be overloaded by a change in number of parameters or a change in parameter data types.
+            </p>
+            <p>
+                An example of method overloading using different types of parameters:
+            </p>
+            <section class="code">
+                <pre class="prettyprint">
+                    <code>
+    //integer parameters
+    public int multiply(int a, int b) {
+        return a * b;
+    }
+    //double parameters
+    public double multiply(double a, double b) {
+        return a * b;
+    }</code>
+                </pre>
+            </section>
+            <p>
+                An example of method overloading using different numbers of parameters:
+            </p>
+            <section class="code">
+                <pre class="prettyprint">
+                    <code>
+    //two parameters
+    public int multiply(int a, int b) {
+        return a * b;
+    }
+    //three parameters
+    public double multiply(int a, int b, int c) {
+        return a * b * c;
+    }</code>
+                </pre>
+            </section>
+            <p>
+                It is possible to override the <code>bark()</code> method in the <code>Dog</code> class above, by adding a parameter to specify how many times the dog should bark.
+            </p>
+            <section class="code">
+                <pre class="prettyprint">
+                    <code>
+    public void bark(int numOfTimes) {
+        for(int i = 0; i &lt; numOfTimes; i++)
+            System.out.print("Woof ");
+        System.out.println();
+    }</code>
+                </pre>
+            </section>
+            <br>
+            <h3>Method Overriding</h3>
+            <p>
+                Method overriding happens when a subclass has its own definition of an inherited method.
+                The inherited method is said to be overridden.
+                To demonstrate this, we can rename the <code>bark()</code> method to <code>makeSound()</code>, and give every superclass and subclass a version of this method.
+            </p>
+            <section class="code">
+                <pre class="prettyprint">
+                    <code>
+    public class Animal {
+
+        public void makeSound() {
+            System.out.println("A sound");
+        }
+    }
+    
+    public class Dog extends Animal {
+
+        public void makeSound() {
+            System.out.println("Woof");
+        }
+    }
+
+    public class Cat extends Animal {
+
+        public void makeSound() {
+            System.out.println("Meow");
+        }
+    }</code>
+                </pre>
+            </section>
+            <section class="code">
+                <pre class="prettyprint">
+                    <code>
+    public class Main {
+        
+        public static void main(String[] args) {
+            Animal animal1 = new Animal();
+            Animal animal2 = new Dog();
+            Animal animal3 = new Cat();
+
+            animal1.makeSound(); //Prints "A sound"
+            animal2.makeSound(); //Prints "Woof"
+            animal3.makeSound(); //Prints "Meow"
+        }
+    }</code>
+                </pre>
+            </section>
+            <p>
+                As shown, object <code>animal2</code> inherits the <code>makeSound()</code> method from the subclass <code>Dog</code> and
+                object <code>animal3</code> inherits the <code>makeSound()</code> method from the subclass <code>Cat</code>,
+                while object <code>animal1</code> retains the original <code>makeSound()</code> method from the superclass <code>Animal</code>.
+            </p>
+            <br>
+            <h2 id="abstraction">Abstraction</h2>
+            <br>
             <h2><br>More coming soon</h2>
         </main>
         <footer>
