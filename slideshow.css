@@ -4,6 +4,7 @@
 }
 img {
     vertical-align: middle;
+    border-radius: 6px;
 }
 .slideshow-container {
     box-sizing: border-box;
