@@ -84,7 +84,8 @@
             </section>
             <p>
                 An empty array of numerical primitive data types (e.g. <code>int</code> or <code>double</code>) will be set to 0,
-                a empty <code>boolean</code> array will be set to <code>false</code>,
+                an empty <code>boolean</code> array will be set to <code>false</code>,
+                an empty <code>char</code> array will be set to <code>ASCII 000</code> or <code>\u0000</code> (<code>null</code>),
                 and empty objects arrays will reference to <code>null</code>.
             </p>
             <section class="code">
@@ -92,6 +93,7 @@
                     <code>
     int[] intArray = new int[5]; //Will create an array of {0, 0, 0, 0, 0}
     double[] doubleArray = new double[5]; //Will create an array of {0.0, 0.0, 0.0, 0.0, 0.0}
+    char[] charArray = new char[5]; //Will create an array of {'', '', '', '', ''}
     boolean[] boolArray = new boolean[5]; //Will create an array of {false, false, false, false, false}
     Integer[] integerArray = new Integer[5]; //Will create an array of (null, null, null, null, null}</code>
                 </pre>
